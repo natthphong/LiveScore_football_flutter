@@ -46,7 +46,6 @@ class _login_WidgetState extends State<login_Widget> {
   Future<void> register_() async {
     String message="";
     try {
-      print('add');
      await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: _Username.text, password: _Password.text);
       message = "register สำเร็จ";
@@ -81,7 +80,7 @@ class _login_WidgetState extends State<login_Widget> {
               }
               if(snapshot.connectionState == ConnectionState.done){
                 return Container(
-                  margin: EdgeInsets.only(left: 40, right: 40, top: 20),
+                  margin: EdgeInsets.only(left: 40, right: 40, top: 100),
                   decoration: BoxDecoration(
                       color: Colors.white, borderRadius: BorderRadius.circular(16.0)),
                   padding: EdgeInsets.all(16.0),
@@ -93,11 +92,11 @@ class _login_WidgetState extends State<login_Widget> {
                           register
                               ? Text(
                                   'สมัครสมาชิก',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  style: TextStyle(fontWeight: FontWeight.bold ),
                                 )
                               : Text(
                                   'เข้าสู่ระบบ',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                  style: TextStyle(fontWeight: FontWeight.bold ),
                                 ),
                           TextFormField(
                             controller: _Username,
@@ -128,14 +127,14 @@ class _login_WidgetState extends State<login_Widget> {
 
                                     register ? register_() : login();
                                   },
-                                  style: ElevatedButton.styleFrom(primary: Colors.red),
+                                  style: ElevatedButton.styleFrom(primary: Colors.grey[200]),
                                   child: register
                                       ? Text('สมัครสมาชิก',
                                           style:
-                                              TextStyle(color: Colors.white, fontSize: 25))
+                                              TextStyle(color: Colors.black, fontSize: 25))
                                       : Text('เข้าสู่ระบบ',
                                           style: TextStyle(
-                                              color: Colors.white, fontSize: 25))),
+                                              color: Colors.black, fontSize: 25))),
                               SizedBox(
                                 width: 16,
                               ),

@@ -4,14 +4,16 @@ import 'package:grocery/Pages/Login.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: FirebaseOptions(
-      apiKey: "AIzaSyCR1m5cm3i6q5bFisIfrz4wj8k3TSFavGk",
-      appId: "com.example.grocery",
-      messagingSenderId: "1082851808227",
-      projectId: "shoppern-5d2c8",
-    ),
-  );
+  await Firebase.initializeApp();
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp(
+  //   options: FirebaseOptions(
+  //     apiKey: "AIzaSyCR1m5cm3i6q5bFisIfrz4wj8k3TSFavGk",
+  //     appId: "com.example.grocery",
+  //     messagingSenderId: "1082851808227",
+  //     projectId: "shoppern-5d2c8",
+  //   ),
+  // );
 
   runApp(const MyApp());
 }

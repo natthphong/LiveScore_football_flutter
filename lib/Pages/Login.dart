@@ -14,39 +14,42 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-          preferredSize: Size.fromHeight(60),
-          child: AppBar(
-            title: tabBar(),
-            backgroundColor: Colors.white,
-            elevation: 0,
-          )),
+      appBar: AppBar(
+        title: tabBar(),
+        backgroundColor: Colors.black,
+        elevation: 0,
+      ),
       body: Container(
+
             height:  double.infinity,
-        color: Colors.red,
+        color: Colors.grey[200],
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    'assets/icon2.png',
-                    width: 180,
-                    height: 240,
-                  ),
-                  Text(
-                    'Shoppern',
-                    style: TextStyle(color: Colors.white, fontSize: 40),
-                  )
-                ],
+              Padding(
+                padding: const EdgeInsets.only(top : 16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/flash.png',
+                      width: 100,
+                      height: 240,
+                    ),
+                  SizedBox(width: 24,)
+            ,
+                    Text(
+                      'ScoreFlash',
+                      style: TextStyle(color: Colors.black, fontSize: 40),
+                    )
+                  ],
+                ),
               ),
               login_Widget()
             ],
           ),
         ),
       ),
-      bottomNavigationBar: Container(height: 40, color : Colors.white, child: Row(children: [Text("ติดตามเรา")],),),
     );
   }
 }

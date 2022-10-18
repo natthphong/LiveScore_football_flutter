@@ -1,44 +1,32 @@
 import 'package:flutter/material.dart';
 
-Widget tabBar({String text = "เข้าสู่ระบบ"}) {
+Widget tabBar() {
   return Container(
-    margin: EdgeInsets.only(left: 10 , right: 10 , top:24),
+    margin: EdgeInsets.only(left: 10 , right: 10 ),
     child: Row(
-
       children: [
-
         Expanded(
           child: Container(
-
             child: Row(
               children: [
-                Image.asset(
-                  'assets/icon1.png',
-                  width: 30,
-                  height: 40,
-                  fit: BoxFit.cover,
-                ),
+                Icon(Icons.sports_soccer_outlined,size: 35,),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    'Shoppern',
-                    style: TextStyle(fontSize: 16, color: Colors.red),
+                    'Football',
+                    style: TextStyle(fontSize: 16, color: Colors.white),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    '$text',
-                    style: TextStyle(fontSize: 16, color: Colors.black),
-                  ),
-                )
-                ,
+
+                Icon(Icons.filter_list,size: 15,),
+
+
               ],
             ),
           ),
         )
         ,
-            Text('ขอความช่วยเหลือ?' , style: TextStyle(fontSize: 15, color: Colors.redAccent),)
+            Row(children: [Icon(Icons.search_outlined,size: 20,) ,  SizedBox(width: 16,),Icon(Icons.settings,size: 20,) ],)
         ],
     ),
   );
