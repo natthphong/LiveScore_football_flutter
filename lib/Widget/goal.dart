@@ -4,9 +4,9 @@ Widget goalStat(var expandedTime, var homeGoal, var awayGoal) {
   var home = homeGoal;
   var away = awayGoal;
   var elapsed = expandedTime;
-  if (home == null) home = 0;
-  if (away == null) away = 0;
-  if (elapsed == null) elapsed = 0;
+  if (home == "") home = 0;
+  if (away == "") away = 0;
+  if (elapsed == "") elapsed = 0;
   return Expanded(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -16,6 +16,7 @@ Widget goalStat(var expandedTime, var homeGoal, var awayGoal) {
           "${elapsed}'",
           style: TextStyle(
             fontSize: 15.0,
+
           ),
         ),
         Expanded(

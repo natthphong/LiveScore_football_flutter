@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:grocery/Pages/shop.dart';
+
+
+import '../../Pages/League.dart';
 
 
 class login_Widget extends StatefulWidget {
@@ -32,7 +34,7 @@ class _login_WidgetState extends State<login_Widget> {
         _Username.clear();
         _Password.clear();
         Fluttertoast.showToast(msg: "Login สำเร็จ");
-          Navigator.push(context, MaterialPageRoute(builder: (context){return shop();}));
+          Navigator.push(context, MaterialPageRoute(builder: (context){return LeaguePage();}));
       });
 
 

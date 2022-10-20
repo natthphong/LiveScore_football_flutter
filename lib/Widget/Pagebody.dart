@@ -6,7 +6,7 @@ import 'goal.dart';
 import 'matchTile.dart';
 
 
-Widget PageBody(List<Math> allmatches) {
+Widget PageBody(List<Math> allmatches , Function callback) {
   return Column(
     children: [
       Expanded(
@@ -18,11 +18,11 @@ Widget PageBody(List<Math> allmatches) {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                teamStat("Local Team", allmatches[0].team_home_badge,
+                teamStat("HOME", allmatches[0].team_home_badge,
                     allmatches[0].match_hometeam_name),
-                goalStat(allmatches[0].match_live=="0"?allmatches[0].match_date:allmatches[0].match_live,
+                goalStat(allmatches[0].match_date, //ผิดเงื่อนไขอะไรไม่รู้
                     allmatches[0].match_hometeam_score, allmatches[0].match_awayteam_score),
-                teamStat("Visitor Team", allmatches[0].team_away_badge,
+                teamStat("AWAY", allmatches[0].team_away_badge,
                     allmatches[0].match_awayteam_name),
               ],
             ),
@@ -53,7 +53,7 @@ Widget PageBody(List<Math> allmatches) {
                   child: ListView.builder(
                     itemCount: allmatches.length,
                     itemBuilder: (context, index) {
-                      return matchTile(allmatches[index]);
+                      return matchTile(allmatches[index] , callback);
                     },
                   ),
                 )

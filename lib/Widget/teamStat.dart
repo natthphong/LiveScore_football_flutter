@@ -8,16 +8,27 @@ Widget teamStat(String team, String logoUrl, String teamName) {
           team,
           style: TextStyle(
             fontSize: 18.0,
+            fontWeight:  FontWeight.bold,
           ),
         ),
         SizedBox(
           height: 10.0,
         ),
         Expanded(
-          child: Image.network(
-            logoUrl,
-            width: 54.0,
-          ),
+          child:
+          FadeInImage(
+            image: NetworkImage(logoUrl),
+            placeholder: AssetImage("assets/loading.png"),
+            imageErrorBuilder: (context, error, stackTrace) {
+              return Icon(
+                Icons.sports_soccer,
+                size: 60,
+              );
+            },
+            width: 51,
+            fit: BoxFit.fitWidth,
+          )
+
         ),
         SizedBox(
           height: 10.0,
