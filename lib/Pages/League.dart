@@ -5,7 +5,7 @@ import 'package:grocery/Pages/shop.dart';
 import '../API/ClassApi/League.dart';
 import '../Widget/League/League_body.dart';
 import '../Widget/LoginWidget/tabBar.dart';
-import '../Widget/barDate.dart';
+
 import '../Widget/buttom.dart';
 
 class LeaguePage extends StatefulWidget {
@@ -17,6 +17,7 @@ class LeaguePage extends StatefulWidget {
 
 class _LeagueState extends State<LeaguePage> {
   List<League> listleague = [];
+
   bool active = false;
   var date = DateTime.now();
   var day;
@@ -24,9 +25,7 @@ class _LeagueState extends State<LeaguePage> {
   bool delay = false;
 
   void daychange(int D, int M) async {
-    print('day');
     setState((){delay = true;});
-    print(delay);
     await Future.delayed(const Duration(seconds: 1),(){
       setState(() {
 
@@ -35,7 +34,7 @@ class _LeagueState extends State<LeaguePage> {
       });
     });
         delay = false;
-    print(delay);
+
   }
 
   void next(var LeagueId) {
