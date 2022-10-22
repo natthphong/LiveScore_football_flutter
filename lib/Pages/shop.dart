@@ -28,6 +28,9 @@ class _shopState extends State<shop> {
 
   }
 
+  void mathlive(){
+
+  }
   void fetch() async{
 
   dataMath   = await ApiContoller.getData(widget.L_id,widget.day,widget.month);

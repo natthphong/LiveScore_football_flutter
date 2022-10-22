@@ -21,6 +21,7 @@ class _login_WidgetState extends State<login_Widget> {
   bool register = false;
   var _Username = TextEditingController();
   var _Password = TextEditingController();
+  var _Password_Confirm = TextEditingController();
   final fromkey = GlobalKey<_login_WidgetState>();
    final Future<FirebaseApp> filebase = Firebase.initializeApp();
 
@@ -47,6 +48,18 @@ class _login_WidgetState extends State<login_Widget> {
 
   Future<void> register_() async {
     String message="";
+    if(_Password_Confirm.text!=_Password.text){
+      message = "Password ไม่เหมือนกัน";
+        Fluttertoast.showToast(msg: message ,gravity: ToastGravity.CENTER , timeInSecForIosWeb: 5, fontSize: 20);
+        setState((){
+          _Username.clear();
+          _Password.clear();
+          _Password_Confirm.clear();
+          register = true;});
+        return;
+      }
+
+
     try {
      await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: _Username.text, password: _Password.text);
@@ -64,10 +77,11 @@ class _login_WidgetState extends State<login_Widget> {
         }
 
     }
-    Fluttertoast.showToast(msg: message ,gravity: ToastGravity.CENTER , timeInSecForIosWeb: 5, fontSize: 60);
+    Fluttertoast.showToast(msg: message ,gravity: ToastGravity.CENTER , timeInSecForIosWeb: 5, fontSize: 20);
     setState((){
       _Username.clear();
       _Password.clear();
+      _Password_Confirm.clear();
       register = false;});
 
 
@@ -118,6 +132,17 @@ class _login_WidgetState extends State<login_Widget> {
                               labelText: 'Password',
                             ),
                           ),
+                          if(register)
+                          TextFormField(
+                            controller: _Password_Confirm,
+                            validator: RequiredValidator(errorText: "Confirm Password"),
+                            obscureText: true,
+                            decoration: const InputDecoration(
+                              border: UnderlineInputBorder(),
+                              labelText: 'Confirm Password',
+                            ),
+                          ),
+
                           SizedBox(
                             height: 16,
                           ),
@@ -149,7 +174,18 @@ class _login_WidgetState extends State<login_Widget> {
                                         _Username.clear();
                                       });
                                     },
-                                    child: Text('สมัครสมาชิก'))
+                                    child: Text('สมัครสมาชิก' , style: TextStyle(color: Colors.blue , fontWeight: FontWeight.w300),) ,),
+                              if (register)
+                                InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        register = false;
+                                        _Password.clear();
+                                        _Username.clear();
+                                        _Password_Confirm.clear();
+                                      });
+                                    },
+                                    child: Text('เข้าสู่ระบบ',style: TextStyle(color: Colors.blue , fontWeight: FontWeight.w300))),
                             ],
                           )
                         ],

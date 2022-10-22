@@ -19,7 +19,7 @@ Widget detail_Pagebody(Math M) {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   teamStat("HOME", M.team_home_badge, M.match_hometeam_name),
-                  goalStat(M.match_live, M.match_hometeam_score,
+                  goalStat(M.match_live=="1"?"LIVE":M.match_date, M.match_hometeam_score,
                       M.match_awayteam_score),
                   teamStat("AWAY", M.team_away_badge, M.match_awayteam_name),
                 ],
